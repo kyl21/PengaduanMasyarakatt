@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Detail Pengaduan')
-    
+
 @section('css')
     <style>
         .text-primary:hover {
@@ -92,7 +92,7 @@
                                     @elseif($pengaduan->status == 'proses')
                                         <a href="" class="badge badge-warning text-white">Proses</a>
                                     @else
-                                        <a href="" class="badge badge-success">Selesai</a>
+                                        <a href="" class="badge badge-danger">Selesai</a>
                                     @endif
                                 </td>
                             </tr>
@@ -144,7 +144,7 @@
                         <button type="submit" class="btn btn-purple">KIRIM</button>
                     </form>
                     @if (Session::has('status'))
-                        <div class="alert alert-success mt-2">
+                        <div class="alert alert-danger mt-2">
                             {{ Session::get('status') }}
                         </div>
                     @endif

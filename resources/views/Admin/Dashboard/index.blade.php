@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="mb-5">
-    <h4 class="text-success">Dashboard</h4>
+    <h4 class="text-danger">Dashboard</h4>
 </div>
 <div class="card shadow">
 <div class="card-body">

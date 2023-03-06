@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Form Tambah Petugas')
-    
+
 @section('css')
     <style>
         .text-primary:hover {
@@ -60,7 +60,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success" style="width: 100%">SIMPAN</button>
+                        <button type="submit" class="btn btn-danger" style="width: 100%">SIMPAN</button>
                     </form>
                 </div>
             </div>

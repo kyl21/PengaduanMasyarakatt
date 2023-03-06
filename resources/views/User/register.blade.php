@@ -2,7 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+{{-- <style>
     body {
         background: #6a70fc;
     }
@@ -49,12 +49,13 @@
         font-weight: 600;
     }
 
-</style>
+</style> --}}
 @endsection
 
 @section('title', 'Halaman Daftar')
 
 @section('content')
+<body class="bg-danger">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">
@@ -113,14 +114,10 @@
                                 </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-purple">DAFTAR</button>
+                        <button type="submit" class="btn btn-danger w-100">DAFTAR</button>
                     </form>
-                    <div class="text-center">
-                        <p class="my-3 text-secondary">Gunakan Akun Media Sosial Anda</p>
+
                     </div>
-                    <a href="{{ route('pekat.auth', 'facebook') }}" class="btn btn-facebook mb-2"><i class="fa fa-facebook" style="font-size:14px"></i> FACEBOOK</a>
-                    <a href="{{ route('pekat.auth', 'google') }}" class="btn btn-google"><i class="fa fa-google" style="font-size:14px"></i> GOOGLE</a>
-                </div>
             </div>
             @if (Session::has('pesan'))
                 <div class="alert alert-danger my-2">
@@ -131,4 +128,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

@@ -55,11 +55,12 @@
 
 @section('content')
 {{-- Section Header --}}
-<section class="header bg-success">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container bg-success">
+<section class="header bg-white d-flex align-items-center justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+        <div class="container bg-danger">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
+
                     <h4 class="semi-bold mb-0 text-white">Pengaduan Masyarakat</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -78,14 +79,18 @@
                         </li>
                     </ul>
                     @else
-                    <ul class="navbar-nav text-center ml-auto bg-success">
+                    <ul class="navbar-nav text-center ml-auto bg-danger">
                         <li class="nav-item">
-                            <button class="btn text-white" type="button" class="btn btn-success" data-toggle="modal"
+                            <button class="btn text-white" type="button" class="btn btn-danger" data-toggle="modal"
                                 data-target="#loginModal">Masuk</button>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pekat.formRegister') }}" class="btn btn-success">Daftar</a>
+                            <a href="{{ route('pekat.formRegister') }}" class="btn btn-danger">Daftar</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekat.laporan') }}" class="btn btn-danger">Laporan</a>
+                        </li>
+
                     </ul>
                     @endauth
                 </div>
@@ -94,14 +99,14 @@
     </nav>
 
     <div class="text-center">
-        <h2 class="medium text-white mt-3">Layanan Pengaduan Masyarakat</h2>
-        <p class="italic text-white mb-5">Sampaikan laporan Anda langsung kepada yang pemerintah berwenang</p>
+        <h2 class="medium text-dark mt-3">Layanan Pengaduan Masyarakat</h2>
+        <p class="italic text-dark">Sampaikan laporan Anda langsung kepada yang pemerintah berwenang</p>
     </div>
 
 
 </section>
 {{-- Section Card Pengaduan --}}
-<div class="row justify-content-center bg-success pb-5">
+{{-- <div class="row justify-content-center bg-danger pb-5">
     <div class="col-lg-6 col-10 col">
         <div class="content shadow">
 
@@ -115,7 +120,7 @@
             <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('pengaduan') }}</div>
             @endif
 
-            <div class="card mb-3 bg-success">Tulis Laporan Disini</div>
+            <div class="card mb-3 bg-danger">Tulis Laporan Disini</div>
             <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
@@ -149,11 +154,11 @@
                 <div class="form-group">
                     <input type="file" name="foto" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-custom mt-2 bg-success">Kirim</button>
+                <button type="submit" class="btn btn-custom mt-2 bg-danger">Kirim</button>
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 <section class="bg-light pb-5 my-5">
     <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -169,6 +174,107 @@
         </div>
     </div>
 </section>
+<div class="row justify-content-center bg-danger pb-5">
+
+    <div class="col-lg-6 col-10 col">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="content shadow">
+
+
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+            @endforeach
+            @endif
+
+            @if (Session::has('pengaduan'))
+            <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('pengaduan') }}</div>
+            @endif
+
+            <div class=" mb-3 text-center "><h1>---Tulis Laporan Disini---</h1></div>
+            <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data" class="border-rounded">
+                @csrf
+                <div class="form-group shadow">
+                    <input type="text" value="{{ old('judul_laporan') }}" name="judul_laporan"
+                        placeholder="Masukkan Judul Laporan" class="form-control">
+                </div>
+                <div class="form-group shadow">
+                    <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
+                        rows="4">{{ old('isi_laporan') }}</textarea>
+                </div>
+                <div class="form-group shadow">
+                    <input type="text" value="{{ old('tgl_kejadian') }}" name="tgl_kejadian"
+                        placeholder="Pilih Tanggal Kejadian" class="form-control" onfocusin="(this.type='date')"
+                        onfocusout="(this.type='text')">
+                </div>
+                <div class="form-group shadow">
+                    <textarea name="lokasi_kejadian" id="latlang" rows="3" class="form-control mb-3"
+                        placeholder="Lokasi Kejadian">{{ old('lokasi_kejadian') }}</textarea>
+                </div>
+                <div class="form-group shadow">
+                    <div class="input-group mb-3">
+                        <select name="kategori_kejadian" class="custom-select" id="inputGroupSelect01" required>
+                            <option value="" selected>Pilih Kategori Kejadian</option>
+                            <option value="agama">Agama</option>
+                            <option value="hukum">Hukum</option>
+                            <option value="lingkungan">Lingkungan</option>
+                            <option value="sosial">Sosial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group shadow">
+                    <input type="file" name="foto" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-custom mt-2 bg-danger shadow">Kirim</button>
+            </form>
+        </div>
+    </div>
+</div>
+<section class="bg-light pb-5 my-5">
+    <div class="container text-center">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-1">
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download (2).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download.jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download (3).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download (1).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/OIP (1).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/OIP (2).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/OIP (3).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/OIP (4).jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download.jpg">
+          </div>
+          <div class="col mb-3">
+            <img class="h-100 w-100" src="/images/download (3).jpg">
+          </div>
+        </div>
+      </div>
+</section>
+
 {{-- Section Hitung Pengaduan --}}
 {{-- <div class="pengaduan mt-5 bg-white mb-5">
     <div class="bg-purple">
@@ -203,7 +309,7 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-success text-white mt-3" style="width: 100%">MASUK</button>
+                    <button type="submit" class="btn btn-danger text-white mt-3" style="width: 100%">MASUK</button>
                 </form>
                 @if (Session::has('pesan'))
                 <div class="alert alert-danger mt-2">

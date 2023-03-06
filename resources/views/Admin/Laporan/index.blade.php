@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="mb-5">
-    <h4 class="text-success">Dashboard</h4>
+    <h4 class="text-danger">Dashboard</h4>
 </div>
 <div class="card shadow">
 <div class="card-body">
@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <input type="text" name="to" class="form-control" placeholder="Tanggal Akhir" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
                         </div>
-                        <button type="submit" class="btn btn-success" style="width: 100%">Cari Laporan</button>
+                        <button type="submit" class="btn btn-danger" style="width: 100%">Cari Laporan</button>
                     </form>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                             @elseif($v->status == 'proses')
                                                 <a href="" class="badge badge-warning text-white">Proses</a>
                                             @else
-                                                <a href="" class="badge badge-success">Selesai</a>
+                                                <a href="" class="badge badge-danger">Selesai</a>
                                             @endif
                                         </td>
                                     </tr>

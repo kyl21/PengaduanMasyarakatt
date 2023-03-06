@@ -8,11 +8,11 @@
 
 @section('content')
 <div class="mb-5">
-    <h4 class="text-success">Petugas</h4>
+    <h4 class="text-danger">Petugas</h4>
 </div>
 <div class="card shadow">
 <div class="card-body">
-    <a href="{{ route('petugas.create') }}" class="btn btn-success mb-2">Tambah Petugas</a>
+    <a href="{{ route('petugas.create') }}" class="btn btn-danger mb-2">Tambah Petugas</a>
     <table id="petugasTable" class="table">
         <thead>
             <tr>

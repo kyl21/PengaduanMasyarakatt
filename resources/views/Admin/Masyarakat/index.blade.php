@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="mb-5">
-    <h4 class="text-success">Masyarakat</h4>
+    <h4 class="text-danger">Masyarakat</h4>
 </div>
 <div class="card shadow">
 <div class="card-body">

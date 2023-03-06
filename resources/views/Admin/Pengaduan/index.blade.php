@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="mb-5">
-    <h4 class="text-success">Pengaduan</h4>
+    <h4 class="text-danger">Pengaduan</h4>
 </div>
 <div class="card shadow">
     <div class="card-body">
@@ -34,7 +34,7 @@
                     @elseif($v->status == 'proses')
                         <a href="" class="badge badge-warning text-white">Proses</a>
                     @else
-                        <a href="" class="badge badge-success">Selesai</a>
+                        <a href="" class="badge badge-danger">Selesai</a>
                     @endif
                 </td>
                 <td><a href="{{ route('pengaduan.show', $v->id_pengaduan) }}" style="text-decoration: underline">Lihat</a></td>
