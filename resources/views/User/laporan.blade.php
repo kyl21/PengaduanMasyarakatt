@@ -81,7 +81,7 @@
                 @if (Session::has('pengaduan'))
                 <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('pengaduan') }}</div>
                 @endif
-                <div class="card mb-3 bg-danger">Tulis Laporan Disini</div>
+                <div class=" mb-3 text-center "><h1>---Tulis Laporan Disini---</h1></div>
                 <form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">

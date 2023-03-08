@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Detail Masyarakat')
-    
+
 @section('css')
     <style>
         .text-primary:hover {
@@ -85,4 +85,4 @@
             @endif
         </div>
     </div>
-@endsection
+@endsection 
