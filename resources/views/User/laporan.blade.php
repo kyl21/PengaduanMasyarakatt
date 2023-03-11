@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
 <link rel="stylesheet" href="{{ asset('css/laporan.css') }}">
 <style>
-    .notification {
+    /* .notification {
         padding: 14px;
         text-align: center;
         background: #f4b704;
@@ -18,22 +18,21 @@
         text-transform: uppercase;
         padding: 0px 25px 0px 25px;
         font-size: 14px;
-    }
+    } */
 </style>
 @endsection
 
 @section('title', 'PEKAT - Pengaduan Masyarakat')
 
 @section('content')
-{{-- Section Header --}}
-<section class="header bg-danger">
+<section class="header bg-white">
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div class="container">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('pekat.index') }}">
-                    <h2 class=" mt-0 text-white">Pengaduan Masyarakat</h2>
+                    <h2 class=" mt-0 text-dark">Pengaduan Masyarakat</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,17 +42,16 @@
                     @if(Auth::guard('masyarakat')->check())
                     <ul class="navbar-nav text-center ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link ml-3 text-white" href="{{ route('pekat.laporan') }}">Laporan</a>
+                            <a class="nav-link ml-3 text-dark" href="{{ route('pekat.laporan') }}">Laporan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ml-3 text-white" href="{{ route('pekat.logout') }}"
-                                style="text-decoration: underline">{{ Auth::guard('masyarakat')->user()->nama }}</a>
+                            <a class="nav-link ml-3 text-dark" href="{{ route('pekat.logout') }}">{{ Auth::guard('masyarakat')->user()->nama }}</a>
                         </li>
                     </ul>
                     @else
                     <ul class="navbar-nav text-center ml-auto">
                         <li class="nav-item">
-                            <button class="btn text-white" type="button" class="btn btn-primary" data-toggle="modal"
+                            <button class="btn text-dark" type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#loginModal">Masuk</button>
                         </li>
                         <li class="nav-item">
@@ -68,11 +66,11 @@
 
 </section>
 {{-- Section Card --}}
-<body class="bg-danger">
+<body class="bg-white">
 <div class="container center">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12 col-sm-12 col-12 col">
-            <div class="content content-top shadow">
+            <div class="content content-top">
                 @if ($errors->any())
                 @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
@@ -90,7 +88,7 @@
                     </div>
                     <div class="form-group">
                         <textarea name="isi_laporan" placeholder="Masukkan Isi Laporan" class="form-control"
-                            rows="4">{{ old('isi_laporan') }}</textarea>
+                            >{{ old('isi_laporan') }}</textarea>
                     </div>
                     <div class="form-group">
                         <input type="text" value="{{ old('tgl_kejadian') }}" name="tgl_kejadian" placeholder="Pilih Tanggal Kejadian" class="form-control"
@@ -113,12 +111,12 @@
                     <div class="form-group">
                         <input type="file" name="foto" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-custom mt-2 bg-danger">Kirim</button>
+                    <button type="submit" class="btn btn-custom  bg-primary">Kirim</button>
                 </form>
             </div>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-12 col">
-            <div class="content content-bottom shadow">
+            <div class="content content-bottom ">
                 <div>
                     <img src="{{ asset('images/user_default.svg') }}" alt="user profile" class="photo">
                     <div class="self-align">

@@ -55,7 +55,7 @@
 @section('title', 'Halaman Daftar')
 
 @section('content')
-<body class="bg-danger">
+<body class="">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">

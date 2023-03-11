@@ -12,7 +12,7 @@
 <div class="card-body">
     <div class="row">
         <div class="col">
-            <div class="card shadow">
+            <div class="card ">
                 <div class="card-header">Petugas</div>
                 <div class="card-body">
                     <div class="text-center">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card shadow">
+            <div class="card ">
                 <div class="card-header">Masyarakat</div>
                 <div class="card-body">
                     <div class="text-center">
@@ -34,7 +34,7 @@
     </div>
     <div class="row my-4">
         <div class="col">
-            <div class="card shadow">
+            <div class="card ">
                 <div class="card-header">Pengaduan Proses</div>
                 <div class="card-body">
                     <div class="text-center">
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card shadow">
+            <div class="card ">
                 <div class="card-header">Pengaduan Selesai</div>
                 <div class="card-body">
                     <div class="text-center">
